@@ -73,4 +73,4 @@ A five-minute overview video is available as part of the final submission.
 - Huston (2010) – *Measuring Financial Literacy*  
 - Haag & Brahm (2025) – *The Gender Gap in Financial Literacy*  
 - Lokanan et al. (2021) – *Predicting Fraud Victimization Using ML*  
-See the full list in the [Final Report](Final_Capstone_Report_Donnelly.docx).
+See the full list in the [Final Report](Donnelly_Marisa_FinalReport.pdf).
