@@ -1,62 +1,76 @@
-
 # Predicting Financial Literacy Using Machine Learning  
 **Capstone Project – TMU Data Analytics Certificate**  
 **Author:** Marisa Donnelly  
-**Date:** July 14, 2025 
+**Date:** July 29, 2025
 
 ---
 
 ## Project Overview  
-This project explores how machine learning models can be used to classify financial literacy levels across countries based on behavioural indicators. Using data from the [Global Findex Database (2017)](https://globalfindex.worldbank.org/), I constructed a proxy variable for financial literacy and tested the performance of logistic regression, random forest, and XGBoost classifiers.  
+This capstone project investigates whether machine learning can classify countries by financial literacy levels using behavioural indicators from the [Global Findex Database (2017)](https://globalfindex.worldbank.org/).  
 
-The goal was to identify which behaviours are most predictive of higher financial literacy and to evaluate which model balances performance and interpretability best.
+A proxy score was constructed by averaging key financial behaviour variables (e.g., saving, borrowing, digital payments). Models were trained to classify countries into high vs. low financial literacy based on this score. The objective was to build models that are both accurate and interpretable for potential use in financial outreach or policy planning.
 
 ---
 
 ## Repository Contents  
-- `2025-DonnellyCapstoneFinLiteracy.ipynb` – The main Jupyter Notebook including:
-  - Data cleaning and preparation  
-  - Proxy score creation  
-  - Binary class labeling  
-  - Model training and evaluation  
-  - SHAP-based feature interpretation  
+- `2025-DonnellyCapstoneFinLiteracyFinal.ipynb` – Jupyter Notebook containing:
+  - Data cleaning and exploratory analysis  
+  - Construction of the proxy score  
+  - Feature preprocessing with `Pipeline` and `ColumnTransformer`  
+  - Model training: logistic regression, random forest, XGBoost  
+  - Model evaluation: metrics, ROC/PR curves  
+  - SHAP visualizations and feature importance plots  
 
-- `plots/` – Folder containing exported model comparison graphs and feature importance visualizations  
-- `data/` – Cleaned dataset used for modeling (derived from Global Findex 2017)  
-- `README.md` – This file
+- `plots/` – Visuals including:
+  - Logistic coefficients  
+  - Random forest importances  
+  - SHAP summary and dependence plots  
+  - Proxy score distribution  
+
+- `data/` – Cleaned dataset derived from the Global Findex survey  
+- `README.md` – This file  
 
 ---
 
 ## Models Used  
-- **Logistic Regression** – Offers interpretability and baseline performance  
-- **Random Forest** – Strong predictive accuracy, good feature ranking  
-- **XGBoost** – Best overall performance, paired with SHAP for interpretability  
+- **Logistic Regression**  
+  + Highly interpretable; ideal for understanding directionality  
+- **Random Forest**  
+  + Good generalization; highlights important features  
+- **XGBoost**  
+  + Best performance; interpreted using SHAP  
 
-Each model was evaluated on precision, recall, F1-score, and accuracy using a held-out test set.  
+Models were evaluated using stratified 5-fold cross-validation and tested on a held-out test set. Metrics included accuracy, precision, recall, F1-score, and ROC-AUC.
 
 ---
 
 ## Key Findings  
-- Emergency savings ability, digital payments, and mobile account ownership were the most influential predictors.  
-- XGBoost achieved the highest overall performance but required more effort to interpret.  
-- Logistic regression provided more transparent insights into feature effects, ideal for policy communication.  
+- Emergency savings, digital payment use, and account ownership were the strongest predictors of high financial literacy.  
+- XGBoost yielded the best accuracy (96%) but required SHAP to explain predictions.  
+- Logistic regression was more interpretable and suitable for communicating policy insights.  
+- SHAP dependence plots revealed non-linear feature effects consistent with financial inclusion research.
+
+---
+
+## Limitations and Next Steps  
+The project used behavioural proxies instead of direct knowledge-based assessments, which may not fully capture conceptual financial literacy. Additionally, using country-level data limits our ability to understand within-country disparities. Future work should extend the analysis to household- or individual-level data, integrate additional datasets, and explore transfer learning or fairness-aware models for broader generalizability.
 
 ---
 
 ## Video Presentation  
-A five-minute walkthrough of this project is available as part of the assignment submission. It includes:  
-- Project overview and goals  
-- Description of key steps in the workflow  
-- Summary of model comparisons and results  
-https://drive.google.com/file/d/1SeUPu6MJffuIA-PALKsyZXHffuWP5NN0/view?usp=sharing
+A five-minute overview video is available as part of the final submission.  
+🎥 [Watch the Video Presentation](https://drive.google.com/file/d/1SeUPu6MJffuIA-PALKsyZXHffuWP5NN0/view?usp=sharing)
+
 ---
 
 ## References  
-The analysis was informed by relevant literature including:  
-- Global Findex Database (World Bank, 2017)  
+- Demirgüç-Kunt et al. (2018) – *The Global Findex Database 2017*  
 - Lusardi & Mitchell (2014) – *The Economic Importance of Financial Literacy*  
-- Fernandes et al. (2014) – *Financial literacy and financial behaviour*  
+- Fernandes et al. (2014) – *Financial literacy and downstream financial behaviors*  
 - Grohmann et al. (2018) – *Does Financial Literacy Improve Financial Inclusion?*  
-- Lee et al. (2023), Elouaourti et al. (2024) – *Machine learning applications in financial inclusion*
-
-See the full references list in the main report.
+- Yue & Zhu (2025) – *Unlocking Financial Literacy with Machine Learning*  
+- Lu et al. (2024) – *Financial Literacy in Predicting Credit Default*  
+- Huston (2010) – *Measuring Financial Literacy*  
+- Haag & Brahm (2025) – *The Gender Gap in Financial Literacy*  
+- Lokanan et al. (2021) – *Predicting Fraud Victimization Using ML*  
+See the full list in the [Final Report](Final_Capstone_Report_Donnelly.docx).
