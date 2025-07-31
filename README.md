@@ -46,10 +46,11 @@ All models were evaluated using stratified 5-fold cross-validation and a held-ou
 ---
 
 ## Key Findings  
-- Features related to credit card ownership, borrowing from family, and inactive accounts were strong predictors of financial literacy.  
-- XGBoost achieved the highest test accuracy (88%), followed by logistic regression (90.5%) and random forest (82%).  
-- SHAP plots helped interpret non-linear effects and highlighted the marginal impact of key behavioural features.  
-- Removing proxy variables from model inputs improved validity and interpretability.
+- **Logistic Regression** was the best-performing model with 90.5% accuracy. It revealed that features like debit card ownership, formal financial institution borrowing, and having an inactive account were strong positive predictors of high financial literacy classification.
+- **XGBoost** followed closely with 88% accuracy. SHAP analysis highlighted features such as borrowing from family or friends, possession of a debit card, and credit card ownership as key contributors.
+- **Random Forest** achieved 82% accuracy. It reinforced the importance of formal borrowing and savings behaviours but was slightly less accurate than the other two.
+- Removing the six proxy variables from model input improved the fairness and interpretability of results, ensuring that models did not simply learn what was already used to define the target.
+- SHAP plots helped uncover non-linear effects and confirmed the nuanced influence of access to financial services and product usage on predicted financial literacy.
 
 ---
 
