@@ -35,11 +35,11 @@ The goal was to identify the most influential behavioural and socio-economic fea
 
 ## Models Used  
 - **Logistic Regression**  
-  + Transparent and interpretable coefficients  
+  + Strongest overall accuracy; Transparent and interpretable coefficients  
 - **Random Forest**  
   + Captures non-linear relationships and interactions  
 - **XGBoost**  
-  + Strongest overall accuracy; explainability achieved through SHAP  
+  + Explainability achieved through SHAP  
 
 All models were evaluated using stratified 5-fold cross-validation and a held-out test set. Metrics included accuracy, precision, recall, F1-score, and ROC-AUC.
 
